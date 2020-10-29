@@ -23,7 +23,7 @@ def scraper():
     title=firstItem.find("div",class_="content_title").text
     teaser=firstItem.find("div",class_="article_teaser_body").text
 
-    toReturn={"article title":title,"article teaser":teaser}
+    toReturn={"articleTitle":title,"articleTeaser":teaser}
 
     browser.quit()
 
@@ -41,12 +41,12 @@ def scraper():
     image=soup.find("a",class_="button fancybox")["data-fancybox-href"]
     image=f"https://www.jpl.nasa.gov/{image}"
 
-    toReturn["featured image"]=image
+    toReturn["featuredImage"]=image
 
     browser.quit()
 
     table = pd.read_html("https://space-facts.com/mars/")[0]
 
-    toReturn["Mars Facts"]=table.to_html('table.html')
+    toReturn["MarsFacts"]=table.to_html()
 
     return toReturn
