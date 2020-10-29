@@ -6,14 +6,14 @@ import pandas as pd
 
 import time
 
-def scraper():
+def doIt():
     executable_path = {'executable_path': 'chromedriver.exe'}
     browser = Browser('chrome', **executable_path, headless=False)
 
     url = "https://mars.nasa.gov/news/"
     browser.visit(url)
 
-    time.sleep(5)
+    time.sleep(1)
 
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
@@ -33,7 +33,7 @@ def scraper():
     url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
     browser.visit(url)
 
-    time.sleep(5)
+    time.sleep(1)
 
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
